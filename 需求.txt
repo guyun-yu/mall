@@ -1,0 +1,20 @@
+1)  会员登录注册+验证码+md5加密
+2)  登录过滤器
+3)  网站动态首页，分类页，商品详情页，会员管理页
+4)  购物车管理页+ajax更新+会话存储
+5)  后台登录页+操作员多级权限管理
+6)  后台管理页+动态权限功能列表
+7)  商品动态多级分类管理+分类图片
+8)  商品管理页+ajax多图片上传
+9)  订单管理页+订单业务流处理（订单，付款，配送，退货，收货，好评，评论）
+10) 首页推荐，销量，热门，收藏，历史等展示
+11) 系统设置页，手机验证找回密码
+
+
+收货地址 - address
+id,code,name,phone,area_code,address
+provinceCode,province,cityCode,city,area
+
+收藏 - collect
+id,user_code,product_code,create_time
+product_name,unit_price,main_picture

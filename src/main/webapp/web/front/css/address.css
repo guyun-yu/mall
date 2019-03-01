@@ -1,0 +1,168 @@
+@charset "UTF-8";
+#main {
+    width: 99%;
+    overflow: hidden;
+}
+
+.mod-comm {
+    padding: 10px 20px 20px;
+}
+
+.mod-main {
+    padding: 10px;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+
+.mod-comm .mt {
+    padding: 10px 0;
+}
+
+.mod-main .mt {
+    display: inline-block;
+    display: block;
+    padding: 10px;
+}
+
+.m, .mb, .mc, .mt, .sm, .smb, .smc, .smt {
+    overflow: hidden;
+    zoom: 1;
+}
+
+a.add-btn {
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 700;
+    padding: 0 14px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 14px;
+    margin: 0 10px 0 0;
+}
+
+a.e-btn:active, a.e-btn:hover, a.e-btn:link, a.e-btn:visited {
+    color: #333;
+    text-decoration: none;
+}
+
+.btn-5, .btn-6, .btn-7, .btn-8 {
+    background-color: #f5fbef;
+    background-image: linear-gradient(to bottom,#f5fbef 0,#eaf6e2 100%);
+    border-radius: 2px;
+    border: 1px solid #bfd6af;
+}
+
+.ftx-03, .ftx03 {
+    color: #999;
+}
+
+.mod-comm .mc {
+    line-height: 20px;
+}
+
+.mod-main .mc {
+    overflow: visible;
+}
+
+.easebuy-m {
+    border: 2px solid #e6e6e6;
+    margin: 0 0 10px;
+}
+
+.easebuy-m .smt {
+    padding-left: 10px;
+    line-height: 35px;
+    height: 35px;
+    position: relative;
+    display: inline-block;
+    display: block;
+    overflow: visible;
+}
+
+.easebuy-m .smt h3 {
+    float: left;
+    color: #666;
+    font-family: "microsoft yahei";
+}
+
+.easebuy-m .smt .extra {
+    float: right;
+    margin: 0 10px 0 0;
+}
+
+.easebuy-m .smt .extra .del-btn {
+    margin-top: 10px;
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    text-indent: 2em;
+    background: url(//misc.360buyimg.com/user/myjd-2015/css/i/close.png) no-repeat;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.easebuy-m .smc {
+    padding: 10px;
+    line-height: 22px;
+    width: 920px;
+}
+
+.easebuy-m .smc .new-items {
+    position: relative;
+    width: 920px;
+}
+
+.easebuy-m .smc .item-lcol {
+    width: 450px;
+    float: left;
+}
+
+.easebuy-m .smc .item span {
+    float: left;
+    width: 70px;
+    color: #999;
+    text-align: right;
+}
+
+.easebuy-m .smc .item-lcol .fl {
+    width: 360px;
+}
+
+.fl {
+    float: left;
+}
+
+.clear, .clr {
+    display: block;
+    overflow: hidden;
+    clear: both;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+}
+
+.easebuy-m .smc .item-rcol {
+    width: 320px;
+    float: left;
+    padding-left: 10px;
+    height: 100%;
+}
+
+.easebuy-m .smc .item-rcol .extra {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.easebuy-m .smt .ftx-04 {
+    margin: 0 0 0 10px;
+    font-size: 12px;
+    background: #ffaa45;
+    padding: 2px;
+    color: #fff;
+    font-weight: 400;
+}
+
+.ftx-05, .ftx05 {
+    color: #005ea7;
+}

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.situ.mall.order.mapper.OrderMapper">
+
+    <resultMap type="OrderModel" id="BaseResultMap">
+        <result column="id" property="id" />
+        <result column="code" property="code" />
+        <result column="user_code" property="userCode" />
+        <result column="payment" property="payment" />
+        <result column="create_time" property="createTime" />
+        <result column="shipping_id" property="shippingId" />
+        <result column="status" property="status" />
+        <collection property="child" ofType="OrderItemModel">
+	        <result column="product_code" property="productCode" />
+	        <result column="quantity" property="quantity" />
+	        <result column="unit_price" property="unitPrice" />
+	        <result column="product_name" property="productName" />
+	        <result column="descr" property="productDescr" />
+	        <result column="img_name" property="imgName" />
+        </collection>
+    </resultMap>
+    
+    <sql id="Base_Column">
+       code,user_code,payment,create_time,shipping_id,status
+    </sql>
+    
+    <sql id="Where_Clause">
+       where 1=1
+       <if test="id != null">
+           and id=#{id}
+       </if>
+       <if test="userCode != null and userCode != ''">
+           and user_code=#{userCode}
+       </if>
+       <if test="createTime != null and createTime != ''">
+           and create_time like #{createTime}
+       </if>
+       <if test="shippingId != null and shippingId != ''">
+           and shipping_id=#{shippingId}
+       </if>
+       <if test="payment != null">
+           and payment=#{payment}
+       </if>
+       <if test="status != null">
+           and status=#{status}
+       </if>
+    </sql>
+    
+    <sql id="Where_Order">
+       where 1=1
+       <if test="id != null">
+           and o.id=#{id}
+       </if>
+       <if test="userCode != null and userCode != ''">
+           and o.user_code=#{userCode}
+       </if>
+       <if test="createTime != null and createTime != ''">
+           and o.create_time like #{createTime}
+       </if>
+       <if test="shippingId != null and shippingId != ''">
+           and o.shipping_id=#{shippingId}
+       </if>
+       <if test="payment != null">
+           and o.payment=#{payment}
+       </if>
+       <if test="status != null">
+           and o.status=#{status}
+       </if>
+    </sql>
+    
+    <sql id="Order_By">
+       <if test="orderBy != null and orderBy != ''">
+           order by ${orderBy}
+       </if>
+    </sql>
+    
+    <sql id="Base_Table">mall.order</sql>
+    <sql id="Order_Item_Table">mall.order_item</sql>
+    <sql id="Product_Table">mall.product</sql>
+    <sql id="Product_Img_Table">mall.product_img</sql>
+    
+    <insert id="insert" parameterType="OrderModel">
+       insert into <include refid="Base_Table"/>
+       (<include refid="Base_Column"/>)
+       values(#{code},#{userCode},#{payment},#{createTime},#{shippingId},#{status})
+    </insert>
+    
+    <delete id="delete" parameterType="Object">
+       delete from <include refid="Base_Table"/>
+       where code in ${id}
+    </delete>
+    
+    <delete id="deleteModel" parameterType="OrderModel">
+       delete from <include refid="Base_Table"/>
+       <include refid="Where_Clause"/>  
+    </delete>
+    
+    <update id="update" parameterType="Object">
+       update <include refid="Base_Table"/>
+       set user_code=#{userCode},payment=#{payment},create_time=#{createTime},
+       shipping_id=#{shippingId},status=#{status}
+       where code=#{code}
+    </update>
+    
+    <update id="updateActive" parameterType="OrderModel">
+       update <include refid="Base_Table"/>
+       <set>
+           <if test="userCode != null and userCode != ''">
+               user_code=#{userCode},
+           </if>
+           <if test="payment != null">
+               payment=#{payment},
+           </if>
+           <if test="createTime != null and createTime != ''">
+               create_time=#{createTime},
+           </if>
+           <if test="shippingId != null and shippingId != ''">
+               shipping_id=#{shippingId},
+           </if>
+           <if test="status != null">
+               status=#{status}
+           </if>
+       </set>
+       where code=#{code}
+    </update>
+    
+    <select id="selectId" resultMap="BaseResultMap" parameterType="Object">
+       select id,<include refid="Base_Column"/>
+       from <include refid="Base_Table"/>
+       where code = #{id}
+    </select>
+    
+    <select id="selectOrder" resultMap="BaseResultMap" parameterType="OrderModel">
+       select o.id, o.code, o.user_code, o.payment, o.create_time, o.shipping_id, o.status,
+              i.product_code, i.quantity, i.unit_price,
+              p.name as product_name, p.descr,
+              (select name from <include refid="Product_Img_Table"/> where type = 1 and code = p.code) as img_name
+       from (select * from <include refid="Base_Table"/><include refid="Where_Clause"/>
+                limit ${rowStart},${pageLimit}) as o
+           left join <include refid="Order_Item_Table" /> as i on o.code = i.order_code
+           left join <include refid="Product_Table" /> as p on i.product_code = p.code
+       <include refid="Where_Order"/>
+       <include refid="Order_By"/>
+    </select>
+    
+    <select id="selectModel" resultMap="BaseResultMap" parameterType="OrderModel">
+       select id,<include refid="Base_Column"/>
+       from <include refid="Base_Table"/>
+       <include refid="Where_Clause"/>
+       <include refid="Order_By"/>
+       <if test="pageOn">
+           limit ${rowStart},${pageLimit}
+       </if>
+    </select>
+    
+    <select id="selectAll" resultMap="BaseResultMap" parameterType="OrderModel">
+       select id,<include refid="Base_Column"/>
+       from <include refid="Base_Table"/>
+       <include refid="Where_Clause"/>
+    </select>
+    
+    <select id="selectCount" resultType="java.lang.Integer" parameterType="OrderModel">
+       select count(id)
+       from <include refid="Base_Table"/>
+       <include refid="Where_Clause"/>
+    </select>
+</mapper>

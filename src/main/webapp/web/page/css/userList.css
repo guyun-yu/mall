@@ -1,0 +1,26 @@
+@charset "UTF-8";
+.layui-form.select {
+	padding-left: 10px;
+}
+
+.layui-form.select .layui-input-inline, .layui-inline {
+	margin-right: 10px;
+}
+
+.layui-collapse {
+	margin-bottom: 10px;
+}
+
+.table-scroll {
+	width: 100%;
+	overflow-x: scroll;
+}
+
+.layui-table th,td {
+	text-align: center;
+}
+
+#page {
+	float: right;
+	margin-right: 20px;
+}

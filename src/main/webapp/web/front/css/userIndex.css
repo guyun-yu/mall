@@ -1,0 +1,40 @@
+@charset "UTF-8";
+.layui-layout-admin .layui-main {
+	width: 90%;
+	margin: 0px auto;
+}
+
+.cent {
+	margin-top: 40px;
+	position: relative;
+}
+
+.cent iframe {
+	height: 400px;
+    width: calc(100% - 220px);
+    margin-left: 220px;
+    border: 1px solid #e2e2e2;
+    padding: 30px 0px;
+}
+
+.user-nav {
+	position: absolute;
+    width: 150px;
+    border: 1px solid #e2e2e2;
+    text-align: center;
+    padding: 20px;
+}
+
+.user-nav li a {
+    font-size: 18px;
+    color: #666;
+}
+
+.user-nav li a:hover {
+	color: #FF5722;
+}
+
+.user-nav .hr {
+    border-top: 1px solid #dddddd;
+    margin: 15px 0px;
+}

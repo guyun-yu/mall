@@ -1,0 +1,46 @@
+@charset "UTF-8";
+.layui-badge {
+    border-radius: 50%;
+}
+
+.layui-layout-admin .layui-main{
+    width: 90%;
+    margin: 0px auto;
+}
+
+.layui-elem-quote.layui-quote-nm {
+	margin: 20px 0px;
+}
+
+.mt .extra-1 .extra-r {
+	position: relative;
+}
+
+.mt .extra-1 .extra-r input {
+	width: 200px;
+	position: absolute;
+	border-color: #009688;
+}
+
+.mt .extra-1 .extra-r button {
+	height: 38px;
+	width: 50px;
+	margin-left: 200px;
+	margin-bottom: 5px;
+}
+
+.layui-table .tr-bd .product-descr img {
+	position: absolute;
+    width: 80px;
+    height: 80px;
+}
+
+.layui-table .tr-bd .product-descr div {
+	height: 80px;
+    padding-left: 85px;
+    overflow: hidden;
+}
+
+.layui-table .tr-th span {
+	margin-right: 50px;
+}

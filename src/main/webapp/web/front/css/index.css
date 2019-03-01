@@ -1,0 +1,327 @@
+@charset "UTF-8";
+.layui-main {
+	position: relative;
+}
+
+.logo {
+	position: absolute;
+	top: -11px;
+	left: 60px;
+	height: 80px;
+	width: 80px;
+}
+
+.logo img {
+	width: 100%;
+	height: 100%;
+}
+
+.select {
+    position: relative;
+    width: 50%;
+    height: 40px;
+    margin: 20px 15% 20px 35%;
+}
+
+.select-input {
+    position: absolute;
+    width: 450px;
+    height: 38px;
+    margin: 0px;
+    border-color: #1E9FFF;
+    padding-left: 5px;
+}
+
+.select .layui-btn {
+    width: 100px;
+    margin-left: 450px;
+    padding: 0px;
+}
+
+.cate {
+	background-color: #fff;
+    position: absolute;
+    top: 98px;
+    left: 10px;
+    width: 190px;
+    height: 401px;
+    border: 1px solid #dddddd;
+}
+
+.cate-nav .cate-nav-item {
+	margin-top: 3px;
+	padding: 0.3em 0px 0.3em 30px;
+}
+
+.cate-nav .cate-nav-item:hover {
+	background-color: #eeeeee;
+}
+
+.cate-nav .cate-nav-item a {
+	font-size: 18px;
+	color: #666;
+}
+
+.cate-nav .cate-nav-item a:hover {
+	color: #FF5722;
+}
+
+.cate-nav .cate-nav-item .cate-cont {
+	display: none;
+	position: absolute;
+    left: 190px;
+    top: -1px;
+	background-color: #fff;
+    width: 700px;
+    height: 381px;
+    border: 1px solid #dddddd;
+    z-index: 90;
+    padding: 10px 20px;
+}
+
+.cate-nav .cate-nav-item:hover .cate-cont {
+	display: block;
+}
+
+.cate-nav .cate-nav-item .cate-cont a {
+	font-size: 16px;
+}
+
+.cate-cont .cate-data {
+	padding-left: 100px;
+	margin-bottom: 10px;
+}
+
+.cate-cont .cate-data .cate-data-tltle {
+	position: absolute;
+	right: 630px;
+	font-weight: bold;
+}
+
+.cate-cont .cate-data .cate-data-cont a {
+	padding: 0px 0.8em;
+	border-left: 1px solid #d2d2d2;
+	white-space: nowrap;
+}
+
+.hot-category {
+	width: 60%;
+	margin: 20px 15% 10px 25%;
+}
+
+.hot-category a {
+	color: #FF5722!important;
+}
+
+.hot-category a,span[lay-separator] {
+	font-size: 18px;
+}
+
+#carousel1 {
+	margin: 15px 0px 30px 210px;
+}
+
+#carousel1 img {
+	width: 1060px;
+}
+
+.float-left {
+	float: left;
+}
+
+.clear-float {
+	clear: both;
+}
+
+.goods-item {
+	height: 210px;
+	padding: 19px 30px;
+	border: 1px solid #eeeeee; 
+}
+
+.layui-elem-field {
+	border-color: #c2c2c2;
+}
+
+.goods-item p {
+	margin: 10px;
+	text-align: center;
+}
+
+.goods-item .price {
+	position: relative;
+	border: 1px solid red;
+}
+
+.goods-item span {
+	display: block;
+	width: 50%;
+	height: 100%;
+	text-align: center;
+}
+
+.goods-item .new-price {
+	position: absolute;
+	font-weight: bold;
+	background-color: red;
+	color: white;
+}
+
+.goods-item .old-price {
+	margin-left: 50%;
+	text-decoration: line-through;
+	opacity: 0.6;
+}
+
+.goods {
+	position: relative;
+	width: 93%;
+	margin: 0px auto;
+}
+
+.goods a:hover {
+	opacity: 0.7;
+}
+
+.goods .timer {
+	position: absolute;
+	height: 250px;
+	width: 180px;
+	background-color: #e83632;
+	color: white;
+	text-align: center;
+}
+
+.goods .timer h1 {
+	margin: 30px auto 60px;
+}
+
+.goods .timer p {
+	font-size: 20px;
+}
+
+.goods .timer label {
+	display: block;
+	background-color: black;
+	width: 75%;
+	margin: 20px auto;
+	font-weight: bold;
+	font-size: 30px;
+}
+
+#carousel2 {
+	position: absolute;
+	top: 10px;
+	left: 190px;
+}
+
+#carousel3 {
+	margin-left: 1010px;
+}
+
+.goods .elec-gd1,.elec-gd2 {
+	background-color: white;
+}
+
+.goods .elec-gd1  {
+	width: 30%;
+}
+
+.goods .elec-goods1,.elec-goods2,.elec-goods6 .title {
+	font-size: 20px;
+	padding: 0.4em 0.4em;
+}
+
+.goods .elec-goods1 .phone {
+	width: 97%;
+	margin: 20px auto;
+}
+
+.goods .elec-goods1 .phone-brand {
+	width: 97%;
+	margin: 0px auto;
+	border-collapse: collapse;
+}
+
+.goods .elec-goods1 .phone-brand td {
+	width: 25%;
+	border: 1px solid #e2e2e2;
+}
+
+.goods .elec-goods1 {
+	position: absolute;
+}
+
+.goods .elec-goods2 {
+	height: 415px;
+	position: absolute;
+	left: 34%;
+}
+
+.goods .elec-goods3 {
+	width: 340px;
+    height: 420px;
+    margin-left: 68%;
+}
+
+.goods .elec-goods4 {
+	width: 340px;
+    height: 420px;
+	position: absolute;
+	top: 480px;
+	left: 40px;
+}
+
+.goods .elec-goods4 div:first-child {
+	margin-bottom: 20px;
+}
+
+.goods .elec-goods5 {
+	height: 415px;
+	position: absolute;
+	top: 500px;
+	left: 39%;
+}
+
+.goods .elec-goods5 table {
+	width: 90%;
+	height: 90%;
+	margin: auto;
+	border-collapse: collapse;
+}
+
+.goods .elec-goods5 .td1 {
+	font-size: 20px;
+	border-top: 1px solid #dddddd;
+}
+
+.goods .elec-goods6 div {
+	margin: 20px 0px;
+}
+
+.goods .elec-goods6 {
+	margin: 60px 0px 0px 71%;
+}
+
+.dect {
+	width: 340px;
+	height: 420px;
+	border: 5px solid black;
+	z-index: -1;
+	position: absolute;
+}
+
+.dect.decorate1 {
+	top: 20px;
+	left: 840px;
+}
+
+.dect.decorate2 {
+	top: 500px;
+}
+
+.layui-field-title legend {
+	font-size: 28px;
+	text-align: center;
+	font-weight: bold;
+}

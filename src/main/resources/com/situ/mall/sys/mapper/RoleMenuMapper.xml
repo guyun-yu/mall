@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.situ.mall.sys.mapper.RoleMenuMapper">
+
+	<resultMap type="RoleMenuModel" id="BaseResultMap">
+		<result column="id" property="id" />
+		<result column="role_code" property="code" />
+		<result column="menu_code" property="menuCode" />
+	</resultMap>
+	
+	<sql id="Base_Column">
+	   role_code,menu_code
+	</sql>
+	
+	<sql id="Where_Clause">
+	   where 1=1
+	   <if test="id != null">
+	       and id=#{id}
+	   </if>
+	   <if test="code != null and code != ''">
+	       and role_code=#{code}
+	   </if>
+	   <if test="menuCode != null and menuCode != ''">
+	       and menu_code=#{menuCode}
+	   </if>
+	</sql>
+	
+	<sql id="Order_By">
+	   <if test="orderBy != null and orderBy != ''">
+	       order by ${orderBy}
+	   </if>
+	</sql>
+	
+	<sql id="Base_Schema">mall</sql>
+	<sql id="Base_Table">role_menu</sql>
+	
+	<insert id="insert" parameterType="RoleMenuModel">
+	   insert into <include refid="Base_Schema"/>.<include refid="Base_Table"/>
+	   (<include refid="Base_Column"/>)
+	   values(#{code},#{menuCode})
+	</insert>
+	
+	<delete id="delete" parameterType="Object">
+	   delete from <include refid="Base_Schema"/>.<include refid="Base_Table"/>
+	   where id in ${id}
+	</delete>
+	
+	<delete id="deleteModel" parameterType="RoleMenuModel">
+	   delete from <include refid="Base_Schema"/>.<include refid="Base_Table"/>
+       <include refid="Where_Clause"/>	
+	</delete>
+	
+	<update id="update" parameterType="RoleMenuModel">
+	   update <include refid="Base_Schema"/>.<include refid="Base_Table"/>
+	   set role_code=#{code},menu_code=#{menuCode}
+	   where id=#{id}
+	</update>
+	
+	<update id="updateActive" parameterType="RoleMenuModel">
+	   update <include refid="Base_Schema"/>.<include refid="Base_Table"/>
+	   <set>
+	       <if test="code != null and code != ''">
+	           role_code=#{code},
+	       </if>
+	       <if test="menuCode != null and menuCode != ''">
+	           menu_code=#{menuCode}
+	       </if>
+	   </set>
+	   where id=#{id}
+	</update>
+	
+	<select id="selectId" resultMap="BaseResultMap" parameterType="Object">
+	   select id,<include refid="Base_Column"/>
+	   from <include refid="Base_Schema"/>.<include refid="Base_Table"/>
+	   where id = #{id}
+	</select>
+	
+	<select id="selectModel" resultMap="BaseResultMap" parameterType="RoleMenuModel">
+	   select id,<include refid="Base_Column"/>
+	   from <include refid="Base_Schema"/>.<include refid="Base_Table"/>
+	   <include refid="Where_Clause"/>
+	   <include refid="Order_By"/>
+	   <if test="pageOn">
+	       limit ${rowStart},${pageLimit}
+	   </if>
+	</select>
+	
+	<select id="selectAll" resultMap="BaseResultMap" parameterType="RoleMenuModel">
+	   select id,<include refid="Base_Column"/>
+	   from <include refid="Base_Schema"/>.<include refid="Base_Table"/>
+	   <include refid="Where_Clause"/>
+	</select>
+	
+	<select id="selectCount" resultType="java.lang.Integer" parameterType="RoleMenuModel">
+	   select count(id)
+	   from <include refid="Base_Schema"/>.<include refid="Base_Table"/>
+	   <include refid="Where_Clause"/>
+	</select>
+</mapper>

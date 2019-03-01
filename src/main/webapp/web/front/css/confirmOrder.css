@@ -1,0 +1,156 @@
+@charset "UTF-8";
+.layui-layout-admin .layui-main {
+	width: 80%;
+	margin: 20px auto 0px;
+}
+
+.layui-table .subtotal {
+	color: #e4393c;
+	font-weight: bold;
+}
+
+.layui-table .product-descr {
+	position: relative;
+}
+
+.layui-table .product-descr img {
+	position: absolute;
+	width: 80px;
+	height: 80px;
+}
+
+.layui-table .product-descr div {
+	height: 80px;
+	padding-left: 85px;
+	overflow: hidden;
+}
+
+.trade-foot {
+	text-align: right;
+}
+
+.trade-foot .trade-foot-detail {
+	background-color: #f2f2f2;
+	padding: 15px;
+}
+
+.trade-foot .trade-foot-detail .consignee-info {
+	color: #666;
+}
+
+.trade-foot .trade-foot-detail .price-tit {
+	color: #666;
+	margin-bottom: 5px;
+}
+
+.trade-foot .trade-foot-detail .total-price {
+	color: #e4393c;
+	font-size: 19px;
+	font-weight: bold;
+}
+
+.trade-foot .submit {
+	background-color: #e4393c;
+	margin: 5px 10px 0px 0px;
+}
+
+.clr {
+	clear: both;
+}
+
+.checkout-steps .step-tit {
+    line-height: 40px;
+    height: 40px;
+    color: #333;
+}
+
+.step-tit h3 {
+    height: 40px;
+    line-height: 40px;
+    float: left;
+}
+
+.step-tit .extra-r {
+    float: right;
+}
+
+.consignee-content {
+    overflow: hidden;
+    max-height: 168px;
+}
+
+.consignee-scrollbar {
+    width: 100%;
+}
+
+.consignee-scroll {
+    position: relative;
+    zoom: 1;
+}
+
+.consignee-scroll .consignee-cont {
+    margin: 0 10px 0 20px;
+    overflow: hidden;
+}
+
+.consignee-scroll .consignee-cont li {
+    list-style: none;
+    height: 30px;
+    margin: 6px 0;
+    float: left;
+    width: 99.8%;
+}
+
+.consignee-scroll .consignee-item.item-selected {
+    border: 2px solid #e4393c;
+    padding: 4px 10px;
+}
+
+.consignee-scroll .consignee-item {
+    list-style: none;
+    position: relative;
+    border: 1px solid #ddd;
+    padding: 4px 10px;
+    height: 18px;
+    line-height: 18px;
+    width: 120px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #fff;
+    float: left;
+    overflow: hidden;
+}
+
+.consignee-scroll .consignee-cont .addr-detail {
+    float: left;
+    height: 30px;
+    line-height: 30px;
+}
+
+.consignee-scroll .consignee-cont .addr-detail span {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.consignee-scroll .consignee-cont .addr-default {
+    margin: 5px 10px;
+    background-color: #999;
+    color: #fff;
+    padding: 0 3px;
+    line-height: 20px;
+}
+
+.consignee-scroll .consignee-cont .op-btns {
+    float: right;
+    text-align: right;
+    height: 30px;
+    line-height: 30px;
+}
+
+.consignee-scroll .consignee-cont .op-btns a {
+    margin-right: 10px;
+}
+
+.ftx-05, .ftx05 {
+    color: #005ea7;
+}

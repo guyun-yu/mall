@@ -1,0 +1,145 @@
+@charset "UTF-8";
+.layui-layout-admin .layui-main {
+	width: 90%;
+	margin: 0px auto;
+}
+
+.select {
+	margin-left: 30%;
+}
+
+.layui-breadcrumb a {
+	font-size: 17px;
+}
+
+.layui-elem-quote {
+	width: 100%;
+	margin: 10px 0px;
+}
+
+.layui-elem-quote span:first-child {
+	font-size: 16px;
+	color: #e4393c;
+}
+
+.goods-cond .goods-attr {
+	position: relative;
+	border-bottom: 1px solid #e2e2e2;
+	height: 40px;
+	line-height: 40px;
+}
+
+.goods-cond .goods-attr div:first-child {
+	position: absolute;
+	left: 10px;
+}
+
+.goods-cond .goods-attr ul {
+    padding-left: 100px;
+}
+
+.goods-cond .goods-attr li {
+	float: left;
+	width: 110px;
+}
+
+.goods-cond .goods-attr .layui-form {
+	position: absolute;
+	right: 10px;
+	top: -5px;
+}
+
+.goods-attr a:hover {
+	opacity: 0.8;
+}
+
+.layui-tab {
+	margin-top: 30px;
+}
+
+.product li {
+	width: 25%;
+	float: left;
+}
+
+.product .product-item {
+	position: relative;
+	width: 90%;
+	height: 370px;
+	margin: 0px 4px;
+	padding: 10px 10px 20px;
+	border: 1px solid white;
+}
+
+.product .product-item:hover {
+	border-color: #e2e2e2;
+}
+
+.product .product-item img {
+	width: 220px;
+	height: 220px;
+	position: relative;
+	left: 15px;
+}
+
+.product .product-item .price {
+	margin: 10px 0px;
+	padding-left: 5px;
+	color: #e4393c;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.product .product-item .sales {
+    position: absolute;
+    right: 15px;
+    top: 243px;
+    color: #666;
+}
+
+.product .product-item .name, .descr {
+	margin-bottom: 10px;
+	padding-left: 5px;
+	overflow: hidden;
+}
+
+.product .product-item .descr a {
+	color: #666;
+}
+
+.product .product-item .name a:hover {
+	color: #FF5722;
+}
+
+.product .product-item .descr a:hover {
+	color: #FF5722;
+}
+
+.product .product-item .name {
+	height: 19px;
+}
+
+.product .product-item .descr {
+	height: 39px;
+}
+
+.product .product-item .buy {
+	position: absolute;
+	right: 20px;
+}
+
+.product .product-item .buy a {
+	font-size: 16px;
+	padding: 0.3em 0.4em;
+	color: #FF5722;
+	border: 1px solid #e2e2e2;
+}
+
+.product .product-item .buy a:hover {
+	border-color: #FF5722;
+}
+
+#page {
+	position: absolute;
+	right: 0px;
+}

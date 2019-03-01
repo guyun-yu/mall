@@ -1,0 +1,66 @@
+@charset "UTF-8";
+.main {
+	width: 96%;
+	margin: auto;
+}
+
+.product li {
+    width: 25%;
+    float: left;
+}
+
+.product .product-item {
+    position: relative;
+    width: 90%;
+    height: 300px;
+    margin: 0px 4px;
+    padding: 10px 10px 20px;
+    border: 1px solid #fff;
+}
+
+.product .product-item:hover {
+    border-color: #e2e2e2;
+}
+
+.product .product-item img {
+    width: 210px;
+    height: 210px;
+    position: relative;
+}
+
+.product .product-item .price {
+    margin: 10px 0px;
+    padding-left: 5px;
+    color: #e4393c;
+    font-weight: bold;
+}
+
+.product .product-item .name{
+    margin-bottom: 10px;
+    padding-left: 5px;
+    overflow: hidden;
+}
+
+.product .product-item .name a:hover {
+    color: #FF5722;
+}
+
+.product .product-item .name {
+    height: 19px;
+}
+
+.product .product-item .del {
+    position: absolute;
+    right: 20px;
+}
+
+.product .product-item .del a {
+    font-size: 16px;
+    padding: 0.3em 0.4em;
+    color: #FF5722;
+    border: 1px solid #e2e2e2;
+}
+
+.product .product-item .del a:hover {
+    border-color: #FF5722;
+}

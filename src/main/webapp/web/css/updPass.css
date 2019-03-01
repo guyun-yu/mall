@@ -1,0 +1,135 @@
+@charset "UTF-8";
+.layui-layout-admin .layui-main {
+    width: 70%;
+    margin: 0px auto;
+}
+
+.step-nav {
+    width: 80%;
+    height: 50px;
+    margin: 30px auto 60px;
+    position: relative;
+}
+
+.step-nav .step {
+	width: 60px;
+	height: 60px;
+	text-align: center;
+	position: absolute;
+}
+
+.step-nav .step2 {
+	left: 46%;
+}
+
+.step-nav .step3 {
+	right: 0px;
+}
+
+.step-nav .step .step-icon {
+    height: 28px;
+    width: 28px;
+    font-size: 17px;
+    font-weight: bold;
+    margin: 0px auto 5px;
+    color: #fff;
+    background-color: #c2c2c2;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 28px;
+}
+
+.step-nav .step .step-text {
+	color: #c2c2c2;
+}
+
+.step-nav .step-line {
+    width: 300px;
+    border: 2px solid #c2c2c2;
+    position: absolute;
+    top: 12px;
+}
+
+.step-nav .step1-line {
+    left: 53px;
+}
+
+.step-nav .step2-line {
+	right: 53px;
+}
+
+.step-nav .step.finish .step-icon{
+	background-color: #FF5722;
+}
+
+.step-nav .step.finish .step-text{
+	color: #FF5722;
+}
+
+.step-nav .step-line.finish {
+	border-color: #FF5722;
+}
+
+.step-cent .step {
+    width: 47%;
+    height: 360px;
+    margin: auto;
+}
+
+.step-cent .step .layui-btn.authCode {
+	position: absolute;
+    right: -140px;
+    top: 0;
+    width: 140px;
+}
+
+.step-cent .step .layui-btn.authCode:hover {
+	border-color: #FF5722;
+}
+
+.step-cent .step .layui-btn.submit {
+	background-color: #FF5722;
+    width: 386px;
+    margin-left: 53px;
+}
+
+.step-cent .step.show {
+	display: block;
+}
+
+.step-cent .step1, .step-cent .step2,.step-cent .step3 {
+	display: none;
+}
+
+.step-cent .step3 {
+	width: 80%;
+}
+
+.step-cent .step3 .success {
+    border: 1px solid #dddddd;
+    padding: 10px 30px;
+    position: relative;
+}
+
+.step-cent .step3 .success .success-icon {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background-color: #99cc33;
+    border-radius: 50%;
+    color: #fff;
+}
+
+.step-cent .step3 .success .success-icon i {
+	font-size: 23px;
+}
+
+.step-cent .step3 .success .success-text {
+	margin-left: 60px;
+}
+
+.step-cent .step3 .success .success-text a {
+	color: #FF5722;
+}

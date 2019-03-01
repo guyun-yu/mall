@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.situ.mall.order.mapper.OrderItemMapper">
+
+    <resultMap type="OrderItemModel" id="BaseResultMap">
+        <result column="id" property="id" />
+        <result column="order_code" property="orderCode" />
+        <result column="product_code" property="productCode" />
+        <result column="quantity" property="quantity" />
+        <result column="unit_price" property="unitPrice" />
+    </resultMap>
+    
+    <sql id="Base_Column">
+       order_code,product_code,quantity,unit_price
+    </sql>
+    
+    <sql id="Where_Clause">
+       where 1=1
+       <if test="id != null">
+           and id=#{id}
+       </if>
+       <if test="orderCode != null and orderCode != ''">
+           and order_code=#{orderCode}
+       </if>
+       <if test="productCode != null and productCode != ''">
+           and product_code like #{productCode}
+       </if>
+       <if test="quantity != null">
+           and quantity=#{quantity}
+       </if>
+       <if test="unitPrice != null">
+           and unit_price=#{unitPrice}
+       </if>
+    </sql>
+    
+    <sql id="Order_By">
+       <if test="orderBy != null and orderBy != ''">
+           order by ${orderBy}
+       </if>
+    </sql>
+    
+    <sql id="Base_Schema">mall</sql>
+    <sql id="Base_Table">order_item</sql>
+    
+    <insert id="insert" parameterType="OrderItemModel">
+       insert into <include refid="Base_Schema"/>.<include refid="Base_Table"/>
+       (<include refid="Base_Column"/>)
+       values(#{orderCode},#{productCode},#{quantity},#{unitPrice})
+    </insert>
+    
+    <delete id="delete" parameterType="Object">
+       delete from <include refid="Base_Schema"/>.<include refid="Base_Table"/>
+       where id in ${id}
+    </delete>
+    
+    <delete id="deleteModel" parameterType="OrderItemModel">
+       delete from <include refid="Base_Schema"/>.<include refid="Base_Table"/>
+       <include refid="Where_Clause"/>  
+    </delete>
+    
+    <update id="update" parameterType="Object">
+       update <include refid="Base_Schema"/>.<include refid="Base_Table"/>
+       set order_code=#{orderCode},product_code=#{productCode},quantity=#{quantity},unit_price=#{unitPrice}
+       where id=#{id}
+    </update>
+    
+    <update id="updateActive" parameterType="OrderItemModel">
+       update <include refid="Base_Schema"/>.<include refid="Base_Table"/>
+       <set>
+           <if test="orderCode != null and orderCode != ''">
+               order_code=#{orderCode},
+           </if>
+           <if test="productCode != null and productCode != ''">
+               product_code=#{productCode},
+           </if>
+           <if test="quantity != null">
+               quantity=#{quantity},
+           </if>
+           <if test="unitPrice != null">
+               unit_price=#{unitPrice}
+           </if>
+       </set>
+       where id=#{id}
+    </update>
+    
+    <select id="selectId" resultMap="BaseResultMap" parameterType="Object">
+       select id,<include refid="Base_Column"/>
+       from <include refid="Base_Schema"/>.<include refid="Base_Table"/>
+       where id = #{id}
+    </select>
+    
+    <select id="selectModel" resultMap="BaseResultMap" parameterType="OrderItemModel">
+       select id,<include refid="Base_Column"/>
+       from <include refid="Base_Schema"/>.<include refid="Base_Table"/>
+       <include refid="Where_Clause"/>
+       <include refid="Order_By"/>
+       <if test="pageOn">
+           limit ${rowStart},${pageLimit}
+       </if>
+    </select>
+    
+    <select id="selectAll" resultMap="BaseResultMap" parameterType="OrderItemModel">
+       select id,<include refid="Base_Column"/>
+       from <include refid="Base_Schema"/>.<include refid="Base_Table"/>
+       <include refid="Where_Clause"/>
+    </select>
+    
+    <select id="selectCount" resultType="java.lang.Integer" parameterType="OrderItemModel">
+       select count(id)
+       from <include refid="Base_Schema"/>.<include refid="Base_Table"/>
+       <include refid="Where_Clause"/>
+    </select>
+</mapper>

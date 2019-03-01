@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.situ.mall.sys.mapper.MenuMapper">
+
+	<resultMap type="MenuModel" id="BaseResultMap">
+		<id column="id" property="id" />
+		<result column="code" property="code" />
+		<result column="name" property="name" />
+		<result column="url" property="url" />
+		<result column="parent_code" property="parentCode" />
+		<collection property="child" ofType="MenuModel">
+			<result column="m2_code" property="code" />
+			<result column="m2_name" property="name" />
+			<result column="m2_url" property="url" />
+			<result column="m2_parent_code" property="parentCode" />
+		</collection>
+	</resultMap>
+	
+	<sql id="Base_Column">
+	   code,name,url,parent_code
+	</sql>
+	
+	<sql id="Where_Clause">
+	   where 1=1
+	   <if test="id != null">
+	       and id=#{id}
+	   </if>
+	   <if test="code != null and code != ''">
+	       and code=#{code}
+	   </if>
+	   <if test="name != null and name != ''">
+	       and name like #{name}
+	   </if>
+	   <if test="url != null and url != ''">
+	       and url=#{url}
+	   </if>
+	   <if test="parentCode != null and parentCode != ''">
+	       and parent_code=#{parentCode}
+	   </if>
+	</sql>
+	
+	<sql id="Order_By">
+	   <if test="orderBy != null and orderBy != ''">
+	       order by ${orderBy}
+	   </if>
+	</sql>
+	
+	<sql id="Base_Schema">mall</sql>
+	<sql id="Base_Table">menu</sql>
+	<sql id="Role_Menu_Table">role_menu</sql>
+	
+	<insert id="insert" parameterType="MenuModel">
+	   insert into <include refid="Base_Schema"/>.<include refid="Base_Table"/>
+	   (<include refid="Base_Column"/>)
+	   values(#{code},#{name},#{url},#{parentCode})
+	</insert>
+	
+	<delete id="delete" parameterType="Object">
+	   delete from <include refid="Base_Schema"/>.<include refid="Base_Table"/>
+	   where code in ${id}
+	</delete>
+	
+	<delete id="deleteModel" parameterType="MenuModel">
+	   delete from <include refid="Base_Schema"/>.<include refid="Base_Table"/>
+       <include refid="Where_Clause"/>	
+	</delete>
+	
+	<update id="update" parameterType="MenuModel">
+	   update <include refid="Base_Schema"/>.<include refid="Base_Table"/>
+	   set name=#{name},url=#{url},parent_code=#{parentCode}
+	   where code=#{code}
+	</update>
+	
+	<update id="updateActive" parameterType="MenuModel">
+	   update <include refid="Base_Schema"/>.<include refid="Base_Table"/>
+	   <set>
+	       <if test="name != null and name != ''">
+	           name=#{name},
+	       </if>
+	       <if test="url != null and url != ''">
+	           url=#{url},
+	       </if>
+	       <if test="parentCode != null and parentCode != ''">
+	           parent_code=#{parentCode}
+	       </if>
+	   </set>
+	   where code=#{code}
+	</update>
+	
+	<select id="selectId" resultMap="BaseResultMap" parameterType="Object">
+	   select id,<include refid="Base_Column"/>
+	   from <include refid="Base_Schema"/>.<include refid="Base_Table"/>
+	   where code = #{id}
+	</select>
+	
+	<select id="selectModel" resultMap="BaseResultMap" parameterType="MenuModel">
+	   select id,<include refid="Base_Column"/>
+	   from <include refid="Base_Schema"/>.<include refid="Base_Table"/>
+	   <include refid="Where_Clause"/>
+	   <include refid="Order_By"/>
+	   <if test="pageOn">
+	       limit ${rowStart},${pageLimit}
+	   </if>
+	</select>
+	
+	<select id="selectAll" resultMap="BaseResultMap" parameterType="MenuModel">
+	   select id,<include refid="Base_Column"/>
+	   from <include refid="Base_Schema"/>.<include refid="Base_Table"/>
+	   <include refid="Where_Clause"/>
+	</select>
+	
+	<select id="getChildMenu" resultMap="BaseResultMap" parameterType="Object">
+	   select id,<include refid="Base_Column"/>
+	   from <include refid="Base_Schema"/>.<include refid="Base_Table"/>
+	   where parent_code != #{code}
+	</select>
+	
+	<select id="selectAllMenu" resultMap="BaseResultMap" parameterType="Object">
+	   select m1.id, m1.code, m1.name, m1.url, m1.parent_code,
+	          m2.code as m2_code, m2.name as m2_name, m2.url as m2_url, m2.parent_code as m2_parent_code
+	   from <include refid="Base_Schema"/>.<include refid="Base_Table"/> as m1
+	       left join <include refid="Base_Schema"/>.<include refid="Base_Table"/> as m2 on m2.parent_code = m1.code
+       where m2.code in (select menu_code from <include refid="Base_Schema"/>.<include refid="Role_Menu_Table"/>
+                         where role_code = #{code})
+	</select>
+	
+	<select id="selectCount" resultType="java.lang.Integer" parameterType="MenuModel">
+	   select count(id)
+	   from <include refid="Base_Schema"/>.<include refid="Base_Table"/>
+	   <include refid="Where_Clause"/>
+	</select>
+</mapper>
